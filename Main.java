@@ -14,7 +14,7 @@ class Main {
         lista.adicionarNoInicio(-25);  // Retorna 4. A lista fica assim: -25, 12, 5, 7
         lista.getQtdElementos();       // Retorna 4
 
-        System.out.println(lista.getValorNaPosicao(0));    // Retorna null
+        lista.getValorNaPosicao(0);    // Retorna null
         lista.getValorNaPosicao(1);    // Retorna -25
         lista.getValorNaPosicao(3);    // Retorna 5
         lista.getValorNaPosicao(5);    // Retorna null
@@ -23,34 +23,34 @@ class Main {
         lista.setValorNaPosicao(1, 4); // Retorna true.  A lista fica assim: 2, 12, 5, 1
         lista.setValorNaPosicao(1, 5); // Retorna false. A lista fica assim: 2, 12, 5, 1
 
-        lista.getPosicaoDoValor( 12);  // Retorna 2
-        lista.getPosicaoDoValor(-25);  // Retorna null, pois o item não existe na lista
+        System.out.println("\nPosição do valor 12: "  + lista.getPosicaoDoValor(12));   // Retorna 2
+        System.out.println(  "Posição do valor -25: " + lista.getPosicaoDoValor(-25));  // Retorna null, pois o item não existe na lista
 
-        System.out.println(lista.getListaCompleta()); // Imprime na tela: "primeiro » 2, 12, 5, 1 « último"
-
-//        lista.removePrimeiro();        // Retorna -25. A lista fica assim: 12, 5, 7
-//        lista.removeUltimo  ();        // Retorna   7. A lista fica assim: 12, 5
-//        lista.removeUltimo  ();        // Retorna   5. A lista fica assim: 15
-//        lista.removeUltimo  ();        // Retorna  15. A lista fica vazia
-//        lista.removeUltimo  ();        // Retorna null pois a lista está vazia
-//        lista.removePrimeiro();        // Retorna null pois a lista está vazia
-
-        var outraLista = new Lista();
-
-        outraLista.adicionarNoFinal( 30); // 30
-        outraLista.adicionarNoFinal(200); // 30, 200
-        outraLista.adicionarNoFinal( 10); // 30, 200, 10
-
-        System.out.println(outraLista.getListaCompletaInvertida()); // Imprime na tela: "último » 10, 200, 30 « primeiro"
-
-        outraLista.combine(lista);      // outraLista » 30, 200, 10
-
-        lista.adicionarNoFinal(110);    // Retorna 1. A lista fica assim: 110
-        lista.adicionarNoFinal(120);    // Retorna 2. A lista fica assim: 110, 120
-        lista.adicionarNoFinal(130);    // Retorna 3. A lista fica assim: 110, 120, 130
-        lista.adicionarNoFinal(  5);    // Retorna 4. A lista fica assim: 110, 120, 130, 5
-
-        outraLista.combine(lista);      // outraLista » 30, 200, 10, 110, 120, 130, 5
+        System.out.println("\n" + lista.getListaCompleta()); // Imprime na tela: "Primeiro » 2, 12, 5, 1 « Último"
+//
+////        lista.removePrimeiro();        // Retorna -25. A lista fica assim: 12, 5, 7
+////        lista.removeUltimo  ();        // Retorna   7. A lista fica assim: 12, 5
+////        lista.removeUltimo  ();        // Retorna   5. A lista fica assim: 15
+////        lista.removeUltimo  ();        // Retorna  15. A lista fica vazia
+////        lista.removeUltimo  ();        // Retorna null pois a lista está vazia
+////        lista.removePrimeiro();        // Retorna null pois a lista está vazia
+//
+//        var outraLista = new Lista();
+//
+//        outraLista.adicionarNoFinal( 30); // 30
+//        outraLista.adicionarNoFinal(200); // 30, 200
+//        outraLista.adicionarNoFinal( 10); // 30, 200, 10
+//
+//        System.out.println(outraLista.getListaCompletaInvertida()); // Imprime na tela: "último » 10, 200, 30 « primeiro"
+//
+//        outraLista.combine(lista);      // outraLista » 30, 200, 10
+//
+//        lista.adicionarNoFinal(110);    // Retorna 1. A lista fica assim: 110
+//        lista.adicionarNoFinal(120);    // Retorna 2. A lista fica assim: 110, 120
+//        lista.adicionarNoFinal(130);    // Retorna 3. A lista fica assim: 110, 120, 130
+//        lista.adicionarNoFinal(  5);    // Retorna 4. A lista fica assim: 110, 120, 130, 5
+//
+//        outraLista.combine(lista);      // outraLista » 30, 200, 10, 110, 120, 130, 5
 		
 		
 		

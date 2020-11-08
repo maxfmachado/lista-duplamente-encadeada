@@ -4,7 +4,7 @@ public class Lista implements IListaDuplamenteEncadeada{
 	
     public Cabeca    cabeca;
     public NoSimples elementoSelecionado;
-    public int		 qtdElementos;
+    public int		 qtdElementos = 0;
     
     public Lista(){
         cabeca = new Cabeca();
@@ -43,10 +43,13 @@ public class Lista implements IListaDuplamenteEncadeada{
         var novoNo = new NoSimples(novoValor);
         if(cabeca.primeiroElemento == null)
             cabeca.primeiroElemento = novoNo;
+        
         else{
-        	moverProInicio();
+        	elementoSelecionado = cabeca.primeiroElemento;
         	cabeca.primeiroElemento = novoNo;
-//            elementoSelecionado = elementoSelecionado.proximoElemento;
+        	novoNo.proximoElemento = elementoSelecionado;
+        	moverProProximo();
+        	
         }
         
         qtdElementos++;
@@ -64,7 +67,7 @@ public class Lista implements IListaDuplamenteEncadeada{
             i++;
             if(i == posicao) valorBuscado = elementoSelecionado.valor;
         }
-
+        System.out.println("Valor na posição " + posicao + ": " + valorBuscado);
         return valorBuscado;
 	}
 
@@ -79,29 +82,33 @@ public class Lista implements IListaDuplamenteEncadeada{
                 elementoSelecionado.valor = valor;
                 return true;
             }
+            
         }
-
+        
         return false;
+        
 	}
 
 	@Override
 	public int getQtdElementos() {
-
+		System.out.println("Quantidade de Elementos da Lista: " + qtdElementos + "\n");
+		
 		return qtdElementos;
 	}
 
 	@Override
 	public Integer getPosicaoDoValor(int valorBuscado) {
+      
         int i = 0;
-        Integer posicao = null;
-
         moverProInicio();
-        while(moverProProximo() && i <= valorBuscado){
+        while (moverProProximo()){
             i++;
-            if(i == valorBuscado) posicao = elementoSelecionado.valor;
+            if(elementoSelecionado.valor == valorBuscado)
+                return i;
         }
-
-        return posicao;
+        
+        return null;
+             
 	}
 
 	@Override
@@ -121,7 +128,7 @@ public class Lista implements IListaDuplamenteEncadeada{
 		
 		return null;
 	}
-
+	
 	@Override
 	public String getListaCompleta() {
         String filaCompleta = "";
@@ -131,7 +138,7 @@ public class Lista implements IListaDuplamenteEncadeada{
         }
         return filaCompleta.length() == 0
             ? "a fila está vazia"
-            : "primeiro » " + filaCompleta.substring(2) + " « último"; // .substring(2) remove os dois primeiros caracteres ", "
+            : "Primeiro »» " + filaCompleta.substring(2) + " «« Último"; // .substring(2) remove os dois primeiros caracteres ", "
 	}
 
 	@Override
