@@ -6,6 +6,8 @@ public class Lista implements IListaDuplamenteEncadeada{
     public NoSimples elementoSelecionado;
     public int		 qtdElementos = 0;
     
+    NoSimples ultimoElemento;
+    
     public Lista(){
         cabeca = new Cabeca();
     }
@@ -21,7 +23,10 @@ public class Lista implements IListaDuplamenteEncadeada{
         
         qtdElementos++;
     }
+    
 
+    
+    
 	@Override
 	public int adicionarNoFinal(int novoValor) {
 
@@ -35,6 +40,8 @@ public class Lista implements IListaDuplamenteEncadeada{
         
         qtdElementos++;
         
+        ultimoElemento = novoNo;
+               
 		return novoValor;
 	}
 
@@ -113,20 +120,33 @@ public class Lista implements IListaDuplamenteEncadeada{
 
 	@Override
 	public Integer removePrimeiro() {
-		// TODO Auto-generated method stub
-		
-		qtdElementos--;
-		
-		return null;
+        if(qtdElementos == 0) return null;
+
+        NoSimples primeiroElemento = cabeca.primeiroElemento;
+
+        cabeca.primeiroElemento = cabeca.primeiroElemento.proximoElemento;
+        
+        return primeiroElemento.valor;
 	}
 
 	@Override
 	public Integer removeUltimo() {
-		// TODO Auto-generated method stub
+		if(qtdElementos == 0) return null;
 		
-		qtdElementos--;
+//		moverProFinal();
+		NoSimples elementoAuxiliar = cabeca.primeiroElemento;
+		NoSimples elementoAnterior = cabeca.primeiroElemento;
+
+		while(elementoAuxiliar.proximoElemento != null) {
+			elementoAnterior = elementoAuxiliar;
+			elementoAuxiliar = elementoAuxiliar.proximoElemento;
+		}
 		
-		return null;
+		elementoAnterior.proximoElemento = null;
+		ultimoElemento = elementoAnterior;
+		
+		return ultimoElemento.valor;
+			
 	}
 	
 	@Override
@@ -137,14 +157,15 @@ public class Lista implements IListaDuplamenteEncadeada{
             filaCompleta += ", "+ elementoSelecionado.valor;
         }
         return filaCompleta.length() == 0
-            ? "a fila está vazia"
-            : "Primeiro »» " + filaCompleta.substring(2) + " «« Último"; // .substring(2) remove os dois primeiros caracteres ", "
+            ? "A fila está vazia"
+            : "Primeiro » " + filaCompleta.substring(2) + " « Último"; // .substring(2) remove os dois primeiros caracteres ", "
 	}
 
 	@Override
 	public String getListaCompletaInvertida() {
-		// TODO Auto-generated method stub
+		
 		return null;
+		
 	}
 	
 	@Override

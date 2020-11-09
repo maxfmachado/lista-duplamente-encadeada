@@ -27,29 +27,36 @@ class Main {
         System.out.println(  "Posição do valor -25: " + lista.getPosicaoDoValor(-25));  // Retorna null, pois o item não existe na lista
 
         System.out.println("\n" + lista.getListaCompleta()); // Imprime na tela: "Primeiro » 2, 12, 5, 1 « Último"
-//
-////        lista.removePrimeiro();        // Retorna -25. A lista fica assim: 12, 5, 7
-////        lista.removeUltimo  ();        // Retorna   7. A lista fica assim: 12, 5
-////        lista.removeUltimo  ();        // Retorna   5. A lista fica assim: 15
-////        lista.removeUltimo  ();        // Retorna  15. A lista fica vazia
-////        lista.removeUltimo  ();        // Retorna null pois a lista está vazia
-////        lista.removePrimeiro();        // Retorna null pois a lista está vazia
-//
-//        var outraLista = new Lista();
-//
-//        outraLista.adicionarNoFinal( 30); // 30
-//        outraLista.adicionarNoFinal(200); // 30, 200
-//        outraLista.adicionarNoFinal( 10); // 30, 200, 10
-//
-//        System.out.println(outraLista.getListaCompletaInvertida()); // Imprime na tela: "último » 10, 200, 30 « primeiro"
-//
+
+        lista.removePrimeiro();        // Retorna -25. A lista fica assim: 12, 5, 1
+        System.out.println("\nRemovendo o primeiro elemento ('2')\n" + lista.getListaCompleta());
+        lista.removeUltimo  ();        // Retorna   1. A lista fica assim: 12, 5
+        System.out.println("\nRemovendo o último elemento ('1')\n" + lista.getListaCompleta());
+        lista.removeUltimo  ();        // Retorna   5. A lista fica assim: 12
+        System.out.println("\nRemovendo o último elemento ('5')\n" + lista.getListaCompleta());
+        lista.removeUltimo  ();        // Retorna  12. A lista fica vazia
+        lista.removeUltimo  ();        // Retorna null pois a lista está vazia
+        lista.removePrimeiro();        // Retorna null pois a lista está vazia
+        
+        System.out.println("\n" + lista.getListaCompleta());
+
+        var outraLista = new Lista();
+
+        outraLista.adicionarNoFinal( 30); // 30
+        outraLista.adicionarNoFinal(200); // 30, 200
+        outraLista.adicionarNoFinal( 10); // 30, 200, 10
+        
+        System.out.println("\n" + outraLista.getListaCompleta());
+
+//        outraLista.getListaCompletaInvertida(); // Imprime na tela: "último » 10, 200, 30 « primeiro"
+
 //        outraLista.combine(lista);      // outraLista » 30, 200, 10
-//
-//        lista.adicionarNoFinal(110);    // Retorna 1. A lista fica assim: 110
-//        lista.adicionarNoFinal(120);    // Retorna 2. A lista fica assim: 110, 120
-//        lista.adicionarNoFinal(130);    // Retorna 3. A lista fica assim: 110, 120, 130
-//        lista.adicionarNoFinal(  5);    // Retorna 4. A lista fica assim: 110, 120, 130, 5
-//
+
+        lista.adicionarNoFinal(110);    // Retorna 1. A lista fica assim: 110
+        lista.adicionarNoFinal(120);    // Retorna 2. A lista fica assim: 110, 120
+        lista.adicionarNoFinal(130);    // Retorna 3. A lista fica assim: 110, 120, 130
+        lista.adicionarNoFinal(  5);    // Retorna 4. A lista fica assim: 110, 120, 130, 5
+
 //        outraLista.combine(lista);      // outraLista » 30, 200, 10, 110, 120, 130, 5
 		
 		
