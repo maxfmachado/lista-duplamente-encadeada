@@ -50,16 +50,16 @@ class Main {
 
 //        outraLista.getListaCompletaInvertida(); // Imprime na tela: "último » 10, 200, 30 « primeiro"
 
-//        outraLista.combine(lista);      // outraLista » 30, 200, 10
+        outraLista.combine(lista);      // outraLista » 30, 200, 10
 
         lista.adicionarNoFinal(110);    // Retorna 1. A lista fica assim: 110
         lista.adicionarNoFinal(120);    // Retorna 2. A lista fica assim: 110, 120
         lista.adicionarNoFinal(130);    // Retorna 3. A lista fica assim: 110, 120, 130
         lista.adicionarNoFinal(  5);    // Retorna 4. A lista fica assim: 110, 120, 130, 5
 
-//        outraLista.combine(lista);      // outraLista » 30, 200, 10, 110, 120, 130, 5
-		
-		
+        outraLista.combine(lista);      // outraLista » 30, 200, 10, 110, 120, 130, 5
+        
+        System.out.println("\n" + outraLista.getListaCompleta());
 		
 		// Percorrendo toda "outraLista" e exibindo os valores na ordem originalmente definida
 //		String outraListaOrnadenada = "";
@@ -84,9 +84,8 @@ class Main {
 //        System.out.println("outraLista invertida: "+ outraListaInvertida); // outraLista invertida: "fim » 5, 130, 120, 110, 10, 200, 30 « ini"
 
 
-
-//        outraLista.BubbleSort();
-//        System.out.println("Lista ordenada pelo BubbleSort(): "+ outraLista.getListaCompleta()); // Imprime na tela: "primeiro » 5, 10, 30, 110, 120, 130, 200 « último"        
+//	    outraLista.BubbleSort();
+//      System.out.println("\nLista ordenada pelo BubbleSort(): "+ outraLista.getListaCompleta()); // Imprime na tela: "primeiro » 5, 10, 30, 110, 120, 130, 200 « último"        
     
     }
 }

@@ -5,6 +5,8 @@ public class Lista implements IListaDuplamenteEncadeada{
     public Cabeca    cabeca;
     public NoSimples elementoSelecionado;
     public int		 qtdElementos = 0;
+    int lista[];
+    int auxiliar;
     
     NoSimples ultimoElemento;
     
@@ -22,10 +24,9 @@ public class Lista implements IListaDuplamenteEncadeada{
         }
         
         qtdElementos++;
-    }
-    
+        
 
-    
+    }
     
 	@Override
 	public int adicionarNoFinal(int novoValor) {
@@ -151,30 +152,34 @@ public class Lista implements IListaDuplamenteEncadeada{
 	
 	@Override
 	public String getListaCompleta() {
+		
         String filaCompleta = "";
         moverProInicio();
         while(moverProProximo()){
-            filaCompleta += ", "+ elementoSelecionado.valor;
+            filaCompleta += ", " + elementoSelecionado.valor;
         }
         return filaCompleta.length() == 0
             ? "A fila está vazia"
             : "Primeiro » " + filaCompleta.substring(2) + " « Último"; // .substring(2) remove os dois primeiros caracteres ", "
+        	
+        	
 	}
 
 	@Override
 	public String getListaCompletaInvertida() {
 		
 		return null;
-		
 	}
 	
 	@Override
 	public IListaDuplamenteEncadeada combine(IListaDuplamenteEncadeada outraLista) {
-        outraLista.moverProInicio();
-        while (outraLista.moverProProximo())
-            add(outraLista.elementoSelecionado.valor);
+		var outra = new Lista();
+		outra = (Lista) outraLista;
+		outra.moverProInicio();
+        while (outra.moverProProximo())
+            add(outra.elementoSelecionado.valor);
         
-		return outraLista;
+		return outra;
 	}
 
 	@Override
@@ -213,17 +218,37 @@ public class Lista implements IListaDuplamenteEncadeada{
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	@Override
-	public IListaDuplamenteEncadeada BubbleSort(int[] listaAserOrdenada) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+    
+//    public int[] getListaOrdenada(){
+//        boolean naoHouveTrocasNesseCiclo;
+//
+//        for(int i=0; i<lista.length; i++){
+//            naoHouveTrocasNesseCiclo = true;
+//            for(int j=0; j<lista.length-1; j++){
+//                if(lista[j] > lista[j+1]){
+//                    auxiliar = lista[j];
+//                    lista[j] = lista[j+1];
+//                    lista[j+1] = auxiliar;
+//                    naoHouveTrocasNesseCiclo = false;
+//                }
+//            }
+//            if(naoHouveTrocasNesseCiclo) break;
+//        }
+//
+//        return lista;
+//    }
+    
 	@Override
 	public IListaDuplamenteEncadeada BubbleSort() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
-
+	
+		@Override
+	public IListaDuplamenteEncadeada BubbleSort(int[] listaAserOrdenada) {
+		
+        lista = listaAserOrdenada;
+		return this;
+	}
+	
 }

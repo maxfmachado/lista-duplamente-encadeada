@@ -1,8 +1,8 @@
 package listas;
 
 public interface IListaDuplamenteEncadeada {
-    NoSimples elementoSelecionado = null;
     
+	NoSimples elementoSelecionado = null;
     public static final int lista[] = null;
     public static final int auxiliar = 0;
 
@@ -119,8 +119,7 @@ public interface IListaDuplamenteEncadeada {
      * @return O valor selecionado ou null caso a lista esteja vazia ou com o ponteiro apontando para uma de suas extremidades
      */
     Integer getValorSelecionado();
-
-
+    
     /**
      * Move o ponteiro que aponta para o registro selecionado para a posição FIM, depois do último elemento da lista
      * @return sem retorno
@@ -143,4 +142,6 @@ public interface IListaDuplamenteEncadeada {
 
 
 	IListaDuplamenteEncadeada BubbleSort(int[] listaAserOrdenada);
+
+
 }
