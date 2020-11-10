@@ -203,8 +203,9 @@ public class Lista implements IListaDuplamenteEncadeada{
 
 	@Override
 	public Integer getValorSelecionado() {
-		// TODO Auto-generated method stub
-		return null;
+        return elementoSelecionado == null
+                ? null
+                : elementoSelecionado.valor;
 	}
 
 	@Override

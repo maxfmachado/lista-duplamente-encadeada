@@ -62,14 +62,14 @@ class Main {
         System.out.println("\n" + outraLista.getListaCompleta());
 		
 		// Percorrendo toda "outraLista" e exibindo os valores na ordem originalmente definida
-//		String outraListaOrnadenada = "";
-//		outraLista.moverProInicio();
-//        while(outraLista.moverProProximo())
-//			outraListaOrnadenada += ", "+ outraLista.getValorSelecionado();
-//		outraListaOrnadenada = outraListaOrnadenada.length() == 0
-//            ? "a lista está vazia"
-//            : "ini » " + outraListaOrnadenada.substring(2) + " « fim"; // .substring(2) remove os dois primeiros caracteres ", "
-//        System.out.println("outraLista ordenada: "+ outraListaOrnadenada); // outraLista ordenada: "ini » 30, 200, 10, 110, 120, 130, 5 « fim"
+		String outraListaOrnadenada = "";
+		outraLista.moverProInicio();
+        while(outraLista.moverProProximo())
+			outraListaOrnadenada += ", "+ outraLista.getValorSelecionado();
+		outraListaOrnadenada = outraListaOrnadenada.length() == 0
+            ? "a lista está vazia"
+            : "ini » " + outraListaOrnadenada.substring(2) + " « fim"; // .substring(2) remove os dois primeiros caracteres ", "
+        System.out.println("\nOutraLista ordenada: "+ outraListaOrnadenada); // outraLista ordenada: "ini » 30, 200, 10, 110, 120, 130, 5 « fim"
 		
 		
 				
