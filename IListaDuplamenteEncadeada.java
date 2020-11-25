@@ -141,7 +141,4 @@ public interface IListaDuplamenteEncadeada {
     IListaDuplamenteEncadeada BubbleSort();
 
 
-	IListaDuplamenteEncadeada BubbleSort(int[] listaAserOrdenada);
-
-
 }

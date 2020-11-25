@@ -1,14 +1,14 @@
 package listas;
 
+import java.util.Arrays;
+
 public class Lista implements IListaDuplamenteEncadeada{
 	
     public Cabeca    cabeca;
     public NoSimples elementoSelecionado;
+    public NoSimples ultimoElemento;
     public int		 qtdElementos = 0;
-    int lista[];
-    int auxiliar;
-    
-    NoSimples ultimoElemento;
+    public int auxiliar;
     
     public Lista(){
         cabeca = new Cabeca();
@@ -23,9 +23,9 @@ public class Lista implements IListaDuplamenteEncadeada{
             elementoSelecionado.proximoElemento = novoNo;
         }
         
+        ultimoElemento = novoNo;
         qtdElementos++;
         
-
     }
     
 	@Override
@@ -41,7 +41,7 @@ public class Lista implements IListaDuplamenteEncadeada{
         
         qtdElementos++;
         
-        ultimoElemento = novoNo;
+
                
 		return novoValor;
 	}
@@ -57,7 +57,6 @@ public class Lista implements IListaDuplamenteEncadeada{
         	cabeca.primeiroElemento = novoNo;
         	novoNo.proximoElemento = elementoSelecionado;
         	moverProProximo();
-        	
         }
         
         qtdElementos++;
@@ -90,11 +89,8 @@ public class Lista implements IListaDuplamenteEncadeada{
                 elementoSelecionado.valor = valor;
                 return true;
             }
-            
         }
-        
         return false;
-        
 	}
 
 	@Override
@@ -115,8 +111,7 @@ public class Lista implements IListaDuplamenteEncadeada{
                 return i;
         }
         
-        return null;
-             
+        return null;    
 	}
 
 	@Override
@@ -158,17 +153,23 @@ public class Lista implements IListaDuplamenteEncadeada{
         while(moverProProximo()){
             filaCompleta += ", " + elementoSelecionado.valor;
         }
+
         return filaCompleta.length() == 0
+        		
             ? "A fila está vazia"
             : "Primeiro » " + filaCompleta.substring(2) + " « Último"; // .substring(2) remove os dois primeiros caracteres ", "
-        	
-        	
 	}
 
 	@Override
 	public String getListaCompletaInvertida() {
 		
-		return null;
+		String outraListaInvertida = "";
+		moverProFinal();
+        while(moverProAnterior())
+			outraListaInvertida += ", "+ elementoSelecionado.valor;
+			return outraListaInvertida.length() == 0
+            ? "a lista está vazia"
+            : "fim » " + outraListaInvertida.substring(2) + " « ini"; // .substring(2) remove os dois primeiros caracteres ", "
 	}
 	
 	@Override
@@ -216,40 +217,73 @@ public class Lista implements IListaDuplamenteEncadeada{
 
 	@Override
 	public boolean moverProAnterior() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
+        if(cabeca.primeiroElemento == null){
+            return false;
+        }else if(elementoSelecionado.elementoAnterior != null){
+            elementoSelecionado = elementoSelecionado.elementoAnterior;
+
+            return true;
+        }else
+            return false;
+
+//	
+//			if (ultimoElemento == null) {
+//				return false;
+//			} else if (elementoSelecionado == null) {
+//				elementoSelecionado = ultimoElemento;
+//				return true;
+//			} else if (elementoSelecionado.elementoAnterior != null) {
+//				elementoSelecionado = elementoSelecionado.elementoAnterior;
+//				return true;
+//			} else
+//				return false;
+		}
+ 
     
-//    public int[] getListaOrdenada(){
-//        boolean naoHouveTrocasNesseCiclo;
-//
-//        for(int i=0; i<lista.length; i++){
-//            naoHouveTrocasNesseCiclo = true;
-//            for(int j=0; j<lista.length-1; j++){
-//                if(lista[j] > lista[j+1]){
-//                    auxiliar = lista[j];
-//                    lista[j] = lista[j+1];
-//                    lista[j+1] = auxiliar;
-//                    naoHouveTrocasNesseCiclo = false;
-//                }
-//            }
-//            if(naoHouveTrocasNesseCiclo) break;
-//        }
-//
-//        return lista;
-//    }
+    public int[] getListaOrdenada(int[] lista){
+        boolean naoHouveTrocasNesseCiclo;
+        
+        moverProInicio();
+        while(moverProProximo()){
+	        for(int i=0; i<lista.length; i++){
+	            naoHouveTrocasNesseCiclo = true;
+	            for(int j=0; j<lista.length-1; j++){
+	                if(lista[j] > lista[j+1]){
+	                    auxiliar = lista[j];
+	                    lista[j] = lista[j+1];
+	                    lista[j+1] = auxiliar;
+	                    naoHouveTrocasNesseCiclo = false;
+	                }
+	            }
+	            if(naoHouveTrocasNesseCiclo) break;
+	        }
+        }
+        
+		return lista;
+    }
     
 	@Override
 	public IListaDuplamenteEncadeada BubbleSort() {
-
-		return null;
-	}
-	
-		@Override
-	public IListaDuplamenteEncadeada BubbleSort(int[] listaAserOrdenada) {
-		
-        lista = listaAserOrdenada;
+        
+		boolean naoHouveTrocasNesseCiclo;
+		moverProInicio();
+		var noAtual = cabeca.primeiroElemento;
+		while (noAtual != null) {
+			naoHouveTrocasNesseCiclo = true;
+			while (ultimoElemento != noAtual) {
+				if (noAtual.valor > noAtual.proximoElemento.valor) {
+					int aux = noAtual.valor;
+					noAtual.valor = noAtual.proximoElemento.valor;
+					noAtual.proximoElemento.valor = aux;
+					naoHouveTrocasNesseCiclo = false;
+				}
+				noAtual = noAtual.proximoElemento;
+			}
+			noAtual = cabeca.primeiroElemento;
+			if (naoHouveTrocasNesseCiclo) break;
+		}
 		return this;
-	}
-	
+
+	}	
 }

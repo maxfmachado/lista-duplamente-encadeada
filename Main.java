@@ -69,23 +69,22 @@ class Main {
 		outraListaOrnadenada = outraListaOrnadenada.length() == 0
             ? "a lista está vazia"
             : "ini » " + outraListaOrnadenada.substring(2) + " « fim"; // .substring(2) remove os dois primeiros caracteres ", "
-        System.out.println("\nOutraLista ordenada: "+ outraListaOrnadenada); // outraLista ordenada: "ini » 30, 200, 10, 110, 120, 130, 5 « fim"
+        System.out.println("\noutraLista Ordenada: "+ outraListaOrnadenada); // outraLista ordenada: "ini » 30, 200, 10, 110, 120, 130, 5 « fim"
 		
-		
-				
+        
 		// Percorrendo toda "outraLista" e exibindo os valores na ordem inversa aquela originalmente definida
-//		String outraListaInvertida = "";
-//		outraLista.moverProFinal();
-//        while(outraLista.moverProAnterior())
-//			outraListaInvertida += ", "+ outraLista.getValorSelecionado();
-//		outraListaInvertida = outraListaInvertida.length() == 0
-//            ? "a lista está vazia"
-//            : "fim » " + outraListaInvertida.substring(2) + " « ini"; // .substring(2) remove os dois primeiros caracteres ", "
-//        System.out.println("outraLista invertida: "+ outraListaInvertida); // outraLista invertida: "fim » 5, 130, 120, 110, 10, 200, 30 « ini"
+		String outraListaInvertida = "";
+		outraLista.moverProFinal();
+        while(outraLista.moverProAnterior())
+			outraListaInvertida += ", "+ outraLista.getValorSelecionado();
+		outraListaInvertida = outraListaInvertida.length() == 0
+            ? "a lista está vazia"
+            : "fim » " + outraListaInvertida.substring(2) + " « ini"; // .substring(2) remove os dois primeiros caracteres ", "
+        System.out.println("outraLista Invertida: "+ outraListaInvertida); // outraLista invertida: "fim » 5, 130, 120, 110, 10, 200, 30 « ini"
 
 
-//	    outraLista.BubbleSort();
-//      System.out.println("\nLista ordenada pelo BubbleSort(): "+ outraLista.getListaCompleta()); // Imprime na tela: "primeiro » 5, 10, 30, 110, 120, 130, 200 « último"        
+      outraLista.BubbleSort();
+      System.out.println("\nLista ordenada pelo BubbleSort(): "+ outraLista.getListaCompleta()); // Imprime na tela: "primeiro » 5, 10, 30, 110, 120, 130, 200 « último"        
     
     }
 }
